@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Combining flow matching and depth priors for efficient navigation">
-  <meta name="keywords" content="FlowNav">
+        content="Recovering Metric Scale in Generative Navigation Policies">
+  <meta name="keywords" content="MetricNet, MetricNav, Generative Navigation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FlowNav: Combining Flow Matching and Depth Priors for Efficient Navigation</title>
+  <title>MetricNet: Recovering Metric Scale in Generative Navigation Policies</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -22,8 +22,9 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script> -->
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -32,6 +33,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/index_modified.css">
   <link rel="icon" href="./static/images/utn.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -88,17 +90,15 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">FlowNav: Combining Flow Matching and Depth Priors for Efficient Navigation</h1>
+          <h1 class="title is-1 publication-title">MetricNet: Recovering Metric Scale in Generative Navigation Policies</h1>
           
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://samirangode.github.io/">Samiran Gode*</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://abhijeetknayak.github.io/">Abhijeet Nayak*</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://deboliveira.github.io/">Debora N.P. Oliveira*</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://www.utn.de/en/person/michael-krawez/">Michael Krawez</a><sup>1</sup>,</span></br>
+              <a href="https://samirangode.github.io/">Samiran Gode*</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://cordeliaschmid.github.io/">Cordelia Schmid</a><sup>2</sup> and </span>    
             <span class="author-block">
@@ -112,19 +112,12 @@
             <span class="author-block"><sup>*</sup> Authors contributed equally</span>
           </div>
 
-          <div class="notification is-success is-light has-text-centered"
-              style="margin: 1rem auto; max-width: 500px;">
-            🎉 Accepted at <b>IROS 2025</b><br/>
-            🔥 Spotlight at the Ellis Doctoral Symposium 2025
-          </div>
-
-
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2411.09524"
+                <a href="https://arxiv.org/pdf/2509.13965"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -133,7 +126,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2411.09524"
+                <a href="https://arxiv.org/abs/2509.13965"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -142,7 +135,7 @@
                 </a>
               </span>
               <!-- Code Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://github.com/utn-air/flownav"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -150,7 +143,7 @@
                   </span>
                   <span>Code</span>
                   </a>
-              </span>
+              </span> -->
             </div>
 
           </div>
@@ -160,7 +153,62 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<section class="section above-the-fold">
+  <div class="container is-max-desktop">
+    <!-- Row of three videos (autoplay + controls) -->
+    <div class="video-grid">
+      <div class="video-card">
+        <video autoplay muted loop controls playsinline preload="metadata">
+          <source src="./static/videos/1-nav-corridor.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <video autoplay muted loop controls playsinline preload="metadata">
+          <source src="./static/videos/2-nav-corridor.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <video autoplay muted loop controls playsinline preload="metadata">
+          <source src="./static/videos/3-nav-corridor.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Teaser directly below -->
+    <div class="teaser-wrap">
+      <div class="teaser-card">
+        <video autoplay muted loop controls playsinline preload="metadata">
+          <source src="./static/videos/output_cut.mp4" type="video/mp4">
+        </video>
+      </div>
+      <h2 class="subtitle has-text-centered mt-2">
+        <span class="dnerf">MetricNet</span> generates waypoints in real-world coordinates, <span class="dnerf">MetricNav</span> uses these to guide the robot away from obstacles and towards the goal.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- Youtube card -->
+<section class="section section-youtube" id="overview-video">
+  <div class="container is-max-desktop">
+    <div class="yt-card">
+      <!-- Click-to-load thumbnail (fast) -->
+      <button class="yt-lite" data-ytid="YOUR_VIDEO_ID" aria-label="Play overview video">
+        <img class="yt-thumb" src="https://i.ytimg.com/vi/YOUR_VIDEO_ID/hqdefault.jpg" alt="Overview video thumbnail">
+        <span class="yt-play">▶</span>
+      </button>
+    </div>
+    <p class="has-text-centered is-size-6 mt-2">
+      3-min overview · captions available · <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">Open on YouTube</a>
+    </p>
+  </div>
+</section>
+
+
+
+<!-- Main teaser video -->
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser_depth" autoplay muted loop controls playsinline height="10%">
@@ -172,8 +220,48 @@
       </h2>
     </div>
   </div>
-</section>
+</section> -->
 
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- Abstract text. Fix the format and make it readable -->
+          <p>
+            Generative navigation policies have made rapid progress in improving end-to-end learned navigation. 
+            Despite their promising results, this paradigm has two structural problems. 
+            First, the sampled trajectories exist in an abstract, unscaled space without metric grounding.
+            Second, the control strategy discards the full path, instead moving directly towards a single waypoint.
+            This leads to short-sighted and unsafe actions, moving the robot towards obstacles that a complete and correctly scaled path would circumvent.
+            To address these issues, we propose MetricNet, an effective add-on for generative navigation that predicts the metric distance between waypoints, grounding policy outputs in real-world coordinates.
+            We evaluate our method in simulation with a new benchmarking framework and show that executing MetricNet-scaled waypoints significantly improves both navigation and exploration performance.
+            Beyond simulation, we further validate our approach in real-world experiments.
+            Finally, we propose MetricNav, which integrates MetricNet into a navigation policy to guide the robot away from obstacles while still moving towards the goal.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <p><b>Video will be released shortly</p></b>
+        <div class="publication-video">
+          <iframe src=""
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
 
 <section class="hero is-light is-small">
   <div class="hero-body">
@@ -195,42 +283,42 @@
 
         <div class="item">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/corridor_1_compressed.mp4"
+            <source src="./static/videos/4-exp-corridor.mp4"
                     type="video/mp4">
           </video>
         </div> 
 
         <div class="item">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/glass_corridor_compressed.mp4"
+            <source src="./static/videos/4-nav-kitchen.mp4"
                     type="video/mp4">
           </video>
         </div>
 
         <div class="item">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/glass_compressed.mp4"
+            <source src="./static/videos/5-exp-corridor.mp4"
                     type="video/mp4">
           </video>
         </div>
 
         <div class="item">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/explore_demo_compressed.mp4"
+            <source src="./static/videos/6-exp-corridor.mp4"
                     type="video/mp4">
           </video>
         </div>
 
         <div class="item">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/white_board_turn_compressed.mp4"
+            <source src="./static/videos/7-exp-classroom.mp4"
                     type="video/mp4">
           </video>
         </div>
 
         <div class="item">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/trash_compressed.mp4"
+            <source src="./static/videos/8-exp-classroom.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -244,44 +332,8 @@
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>Effective robot navigation in unseen environments is a challenging task that requires precise 
-            control actions at high frequencies. Recent advances have framed it as an image-goal-conditioned
-            control problem, where the robot generates navigation actions using frontal RGB images. 
-            Current state-of-the-art methods in this area use diffusion policies to generate these 
-            control actions. Despite their promising results, these models are computationally expensive 
-            and suffer from weak perception. To address these limitations, we present FlowNav, a novel 
-            approach that uses a combination of conditional flow matching and depth priors from off-the-shelf foundation 
-            models to learn action policies for robot navigation.  FlowNav is significantly more accurate 
-            at navigation and exploration than state-of-the-art methods. We validate our contributions using
-            real robot experiments in multiple unseen environments, demonstrating improved navigation 
-            reliability and accuracy.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
 
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <p><b>Video will be released shortly</p></b>
-        <div class="publication-video">
-          <iframe src=""
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
-  </div>
-</section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -289,10 +341,10 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Avoiding obstacles with  <span class="dnerf">FlowNav</span> </h2>
+        <h2 class="title is-3">Avoiding obstacles with  <span class="dnerf">MetricNet</span> </h2>
         <div class="content has-text-justified">
           <p>
-            <span class="dnerf">FlowNav</span> is able to navigate across multiple obstacle configurations, even identifying glass walls.
+            <span class="dnerf">MetricNav</span> is able to do complete 180 degree turns if there are is no free space in front.
           </p>
         </div>
         <div class="content has-text-centered">
@@ -305,7 +357,7 @@
                  loop
                  playsinline
                  width="100%">
-            <source src="./static/videos/observations_compressed.mp4"
+            <source src="./static/videos/exp-kitchen-1.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -328,13 +380,13 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Comparing  <span class="dnerf">FlowNav</span> with Diffusion models</h2>
+        <h2 class="title is-3">Velocity Control v/s following <span class="dnerf">MetricNet</span> waypoints as is</h2>
 
         <!-- Re-rendering. -->
-        <h3 class="title is-4">Depth priors</h3>
+        <h3 class="title is-4">Metric waypoints in real-world coordinates</h3>
         <div class="content has-text-justified">
           <p>
-            <span class="dnerf">FlowNav</span> demonstrates that including depth priors during model training helps the model more representative better action policies for robot navigation.
+            <span class="dnerf">MetricNet</span> demonstrates that including depth priors during model training helps the model more representative better action policies for robot navigation.
           </p>
         </div>
         <div class="content has-text-centered">
@@ -344,14 +396,14 @@
                  preload
                  playsinline
                  width="75%">
-            <source src="./static/videos/exploration_depth_prior_compressed.mp4"
+            <source src="./static/videos/collage_2x3.mp4"
                     type="video/mp4">
           </video>
         </div>
         <!--/ Re-rendering. -->
 
         <!-- Re-rendering. -->
-        <h3 class="title is-4">Integration steps</h3>
+        <!-- <h3 class="title is-4">Integration steps</h3>
         <div class="content has-text-justified">
           <p>
             Flow matching policies remain effective with fewer inference steps, thus reducing trajectory generation time.
@@ -367,7 +419,7 @@
             <source src="./static/videos/k_variation_compressed.mp4"
                     type="video/mp4">
           </video>
-        </div>
+        </div> -->
         <!--/ Re-rendering. -->
 
       </div>
@@ -382,16 +434,16 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre>
-<code>@misc{gode2025flownav,
-      title={FlowNav: Combining Flow Matching and Depth Priors for Efficient Navigation}, 
-      author={Gode, Samiran and Nayak, Abhijeet and Oliveira, Débora N.P. and  and Krawez, Michael 
-              and Schmid, Cordelia and Burgard, Wolfram},
+<code>@misc{nayak2025metricnetrecoveringmetricscale,
+      title={MetricNet: Recovering Metric Scale in Generative Navigation Policies}, 
+      author={Abhijeet Nayak and Débora N. P. Oliveira and Samiran Gode and Cordelia Schmid and Wolfram Burgard},
       year={2025},
-      eprint={2411.09524},
+      eprint={2509.13965},
       archivePrefix={arXiv},
       primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2411.09524}, 
-}</code></pre>
+      url={https://arxiv.org/abs/2509.13965}, 
+      }
+</code></pre>
   </div>
 </section>
 

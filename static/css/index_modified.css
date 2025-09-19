@@ -1,0 +1,205 @@
+/* =========================
+   TOKENS (easy to tweak)
+   ========================= */
+:root {
+  --bg-paper: #FAF7F2;
+  --text-body: #44403C;     /* warm grey for body + titles (T1) */
+  --text-subtle: #5A5049;
+
+  --link: #B45309;          /* amber kit */
+  --link-hover: #92400E;
+  --link-visited: #7C2D12;
+  --focus-ring: #FDBA74;
+
+  --border-warm: #E7E0D8;
+  --shadow-soft: rgba(28,25,23,0.08);
+
+  --radius-sm: 10px;
+  --radius-md: 12px;
+
+  --sup-size: 0.72rem;      /* superscript size (same everywhere) */
+}
+
+/* =========================
+   BASE
+   ========================= */
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background: var(--bg-paper);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links + focus */
+a { color: var(--link); }
+a:hover { color: var(--link-hover); text-decoration: underline; }
+a:visited { color: var(--link-visited); }
+a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+/* =========================
+   HERO / TITLE
+   ========================= */
+/* Compact title hero to fit more above the fold */
+.hero.is-title-compact .hero-body { padding: 1.25rem 0.75rem; }
+
+/* Softer H1 (uses IBM Plex Sans via <head> fonts) */
+.title.is-1.publication-title {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;                  /* softer than 700 */
+  color: var(--text-body);           /* warm grey (T1) */
+  letter-spacing: 0.1px;
+  line-height: 1.1;
+}
+/* Nudge size down a touch vs Bulma's defaults */
+@media (min-width: 1024px) { .title.is-1.publication-title { font-size: 2.6rem; } }
+@media (max-width: 1023px) { .title.is-1.publication-title { font-size: 2.1rem; } }
+
+/* Subtitle/tagline */
+.subtitle { color: var(--text-subtle); }
+
+/* =========================
+   AUTHORS & AFFILIATIONS
+   ========================= */
+.publication-authors {
+  font-family: "Noto Sans", sans-serif;
+  color: var(--text-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.publication-authors .author-block {
+  display: inline-block;
+  margin: 0.1rem 0;
+}
+
+/* Author links (override earlier important rules) */
+.publication-authors a { color: var(--link) !important; }
+.publication-authors a:hover { color: var(--link-hover) !important; text-decoration: underline; }
+
+/* Superscripts unified across author line + affiliation lines */
+.publication-authors sup {
+  font-size: var(--sup-size);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-body);
+  vertical-align: super;
+}
+/* Spacing:
+   - In author list, <sup> follows name → small left gap.
+   - In affiliation lines, <sup> is first → small right gap.
+*/
+.publication-authors .author-block sup     { margin-left: 0.2ch; margin-right: 0; }
+.publication-authors .author-block sup:first-child { margin-left: 0; margin-right: 0.35ch; }
+
+/* Optional micro-nudge if superscripts feel high/low */
+@supports (position: relative) {
+  .publication-authors sup { position: relative; top: -0.02em; }
+}
+
+/* =========================
+   CTA BUTTONS (Paper / arXiv / Code)
+   ========================= */
+.publication-links .button {
+  border-radius: 9999px;
+  border: 1px solid var(--link);
+  color: var(--link);
+  background: transparent;
+}
+.publication-links .button:hover {
+  background: var(--link);
+  color: #FFFFFF;
+}
+
+/* =========================
+   ABOVE-THE-FOLD VIDEOS
+   ========================= */
+.above-the-fold { padding-top: 0.75rem; padding-bottom: 1rem; }
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+.video-card {
+  background: #000;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+.video-card video {
+  display: block;
+  width: 100%;
+  height: clamp(140px, 20vh, 240px);
+  object-fit: cover;
+}
+
+/* Teaser below the grid */
+.teaser-wrap { margin-top: 0.75rem; }
+.teaser-wrap .teaser-card {
+  background: #000;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,.18);
+}
+.teaser-wrap video {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 35vh, 420px);
+  object-fit: cover;
+}
+
+/* Responsive stacking for the three videos */
+@media (max-width: 1024px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px)  { .video-grid { grid-template-columns: 1fr; } }
+
+/* =========================
+   TEASER SECTION (original hero.teaser)
+   ========================= */
+.hero.teaser .hero-body {
+  background: #FFFFFF;
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 20px var(--shadow-soft);
+  padding: 1.25rem;
+}
+.hero.teaser video {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+
+/* Make the above-the-fold container as wide as Bulma's default .container */
+.above-the-fold .container.is-max-desktop { max-width: 1152px; }        /* widescreen */
+@media (min-width: 1408px) { .above-the-fold .container.is-max-desktop { max-width: 1344px; } } /* fullhd */
+
+/* Optional: loosen the gaps a touch on desktop if they still feel tight */
+@media (min-width: 1024px) { .video-grid { gap: 1rem; } }
+
+
+/* 1) Remove the old fixed height on grid videos */
+.video-card video { height: auto; }
+
+/* 2) Give each card a 16:9 box that scales with width */
+.video-card { aspect-ratio: 16 / 9; }
+
+/* 3) Fill the box without cropping; show whole video */
+.video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* see entire video */
+  background: #000;      /* clean letterboxing */
+  display: block;
+}
+
+.above-the-fold .container.is-max-desktop { max-width: 1152px; }
+@media (min-width: 1408px) {
+  .above-the-fold .container.is-max-desktop { max-width: 1344px; }
+}
+
+/* Reduce space under the title hero and above the top grid */
+.hero.is-title-compact { margin-bottom: 0.5rem; }
+.hero.is-title-compact .hero-body { padding-bottom: 0.75rem; }
+
+.section.above-the-fold { padding-top: 0.0rem; }  /* was 0.75rem */
