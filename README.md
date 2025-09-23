@@ -1,20 +1,19 @@
-# FlowNav
+# MetricNet
 
-This is the repository that contains source code for the [FlowNav website](https://utn-air.github.io/flownav.github.io/).
+This is the repository that contains source code for the [MetricNet website](https://utn-air.github.io/metricnet/).
 
 Template design by [Nerfies website](https://nerfies.github.io).
 
-If you find FlowNav useful for your work please cite:
+If you find MetricNet useful for your work please cite:
 ```
-@misc{gode2025flownavcombiningflowmatching,
-      title={FlowNav: Combining Flow Matching and Depth Priors for Efficient Navigation}, 
-      author={Gode, Samiran and Nayak, Abhijeet and Oliveira, Débora N.P. and  and Krawez, Michael 
-              and Schmid, Cordelia and Burgard, Wolfram},
+@misc{nayak2025metricnetrecoveringmetricscale,
+      title={MetricNet: Recovering Metric Scale in Generative Navigation Policies}, 
+      author={Abhijeet Nayak and Débora N. P. Oliveira and Samiran Gode and Cordelia Schmid and Wolfram Burgard},
       year={2025},
-      eprint={2411.09524},
+      eprint={2509.13965},
       archivePrefix={arXiv},
       primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2411.09524}, 
+      url={https://arxiv.org/abs/2509.13965}, 
 }
 ```
 
