@@ -155,6 +155,9 @@
 
 <section class="section above-the-fold">
   <div class="container is-max-desktop">
+      <h2 class="subtitle has-text-centered mt-2">
+        <span class="dnerf">MetricNet</span> generates waypoints in real-world coordinates, <span class="dnerf">MetricNav</span> uses these to guide the robot away from obstacles and towards the goal.
+      </h2>
     <!-- Row of three videos (autoplay + controls) -->
     <div class="video-grid">
       <div class="video-card">
@@ -181,19 +184,15 @@
           <source src="./static/videos/example/output_cut.mp4" type="video/mp4">
         </video>
       </div>
-      <h2 class="subtitle has-text-centered mt-2">
-        <span class="dnerf">MetricNet</span> generates waypoints in real-world coordinates, <span class="dnerf">MetricNav</span> uses these to guide the robot away from obstacles and towards the goal.
-      </h2>
     </div>
   </div>
 </section>
 
 
 <!-- Youtube card -->
-<section class="section section-youtube" id="overview-video">
+<!-- <section class="section section-youtube" id="overview-video">
   <div class="container is-max-desktop">
     <div class="yt-card">
-      <!-- Click-to-load thumbnail (fast) -->
       <button class="yt-lite" data-ytid="YOUR_VIDEO_ID" aria-label="Play overview video">
         <img class="yt-thumb" src="https://i.ytimg.com/vi/YOUR_VIDEO_ID/hqdefault.jpg" alt="Overview video thumbnail">
         <span class="yt-play">▶</span>
@@ -203,7 +202,7 @@
       3-min overview · captions available · <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">Open on YouTube</a>
     </p>
   </div>
-</section>
+</section> -->
 
 
 
@@ -286,14 +285,7 @@
             <source src="./static/videos/carousel/1-nav-corridor.mp4"
                     type="video/mp4">
           </video>
-        </div>        
-
-        <div class="item">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/carousel/4-exp-corridor.mp4"
-                    type="video/mp4">
-          </video>
-        </div> 
+        </div>     
 
         <div class="item">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
@@ -307,7 +299,14 @@
             <source src="./static/videos/carousel/5-exp-corridor.mp4"
                     type="video/mp4">
           </video>
-        </div>
+        </div>   
+
+        <div class="item">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/carousel/4-exp-corridor.mp4"
+                    type="video/mp4">
+          </video>
+        </div> 
 
         <div class="item">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
@@ -323,12 +322,12 @@
           </video>
         </div>
 
-        <div class="item">
+        <!-- <div class="item">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/carousel/8-exp-classroom.mp4"
                     type="video/mp4">
           </video>
-        </div>
+        </div> -->
 
         <div class="item">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
@@ -448,13 +447,10 @@
         <div class="content has-text-centered">
           <video id="replay-video"
                  controls
+                 muted
                  preload
                  playsinline
-                 autoplay 
-                 muted 
-                 loop
-                 playsinline
-                 width="100%">
+                 width="75%">
             <source src="./static/videos/example/exp-kitchen-1.mp4"
                     type="video/mp4">
           </video>
@@ -463,11 +459,6 @@
       </div>
     </div>
     <!--/ Animation. -->
-
-
-    
-
-
   </div>
 </section>
 
@@ -481,7 +472,7 @@
         <h2 class="title is-3">Velocity Control v/s following <span class="dnerf">MetricNet</span> waypoints as is</h2>
 
         <!-- Re-rendering. -->
-        <h3 class="title is-4">Metric waypoints in real-world coordinates</h3>
+        <!-- <h3 class="title is-4">Metric waypoints in real-world coordinates</h3> -->
         <div class="content has-text-justified">
           <p>
             <span class="dnerf">MetricNet</span> demonstrates that including depth priors during model training helps the model more representative better action policies for robot navigation.
@@ -534,16 +525,18 @@
     <pre>
 <code>@misc{nayak2025metricnetrecoveringmetricscale,
       title={MetricNet: Recovering Metric Scale in Generative Navigation Policies}, 
-      author={Abhijeet Nayak and Débora N. P. Oliveira and Samiran Gode and Cordelia Schmid and Wolfram Burgard},
+      author={Abhijeet Nayak and Débora N. P. Oliveira and Samiran Gode and 
+              Cordelia Schmid and Wolfram Burgard},
       year={2025},
       eprint={2509.13965},
       archivePrefix={arXiv},
       primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2509.13965}, 
-      }
+      url={https://arxiv.org/abs/2509.13965} 
+  }
 </code></pre>
   </div>
 </section>
+
 
 
 <footer class="footer">
