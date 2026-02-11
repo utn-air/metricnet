@@ -1,0 +1,64 @@
+project_name: metricnet
+run_name: metricnet_run
+entity: <YOUR WANDB USERNAME>
+
+# training setup
+use_wandb: False 
+train: True
+batch_size: 5
+eval_batch_size: 5
+epochs: 15
+gpu_ids: [0]
+num_workers: 0
+lr: 1e-4
+optimizer: adamw
+scheduler: "cosine"
+seed: 0
+
+# model params
+embedding_size: 384
+n_conv_res_blocks: 1
+n_lin_res_blocks: 3
+len_traj_pred: 8
+depth_encoder_weights: <DEPTH ANYTHING VITS WEIGHTS>
+
+# dataset specific parameters
+image_size: [96, 96] 
+datasets:
+  habitat-multi-cam-depth:
+    data_folder: /home/<username>/habitat-multicam-depth
+    train: /home/<username>/data_split_scaleNav/habitat-multicam-depth/train
+    test: /home/<username>/data_split_scaleNav/habitat-multicam-depth/test
+    waypoint_spacing: [1,2,3,4,5,6,7,8,9,10]
+  recon:
+    data_folder: /home/<username>/recon_processed
+    train: /home/<username>/data_split/recon/train/ 
+    test: /home/<username>/data_split/recon/test/ 
+    waypoint_spacing: [1,2,3,4,5]
+  go_stanford:
+    data_folder: /home/<username>/go_stanford
+    train: /home/<username>/data_split/go_stanford/train
+    test: /home/<username>/data_split/go_stanford/test/
+    waypoint_spacing: [1,2,3,4,5,6,7,8,9,10]
+  tartan_drive:
+    data_folder: /home/<username>/tartan_processed
+    train: /home/<username>/data_split/tartan_drive/train/
+    test: /home/<username>/data_split/tartan_drive/test/
+    waypoint_spacing: [1]
+  sacson:
+    data_folder: /home/<username>/sacson_processed
+    train: /home/<username>/data_split/sacson/train/
+    test: /home/<username>/data_split/sacson/test/
+    waypoint_spacing: [1,2,3,4,5]
+  scand:
+    data_folder: /home/<username>/scand_processed
+    train: /home/<username>/data_split/scand/train/
+    test: /home/<username>/data_split/scand/test/
+    waypoint_spacing: [1,2,3]
+
+# logging stuff
+print_log_freq: 100 
+image_log_freq: 1000 
+eval_fraction: 0.5
+wandb_log_freq: 10 
+eval_freq: 1 

@@ -1,0 +1,32 @@
+benchmark_dir: <BENCHMARK FOLDER>
+result_dir: <OUTPUT DIR>
+device: 'cuda:0'
+eval_type: 'nav' # or exp 
+controller: 'teleport' # or velocity
+num_workers: 20
+max_agent_per_worker: 20
+repetitions_per_trajectory: 5
+waypoint_idx: 3
+scale: 0.026
+
+models:
+  flownav_depth:
+    model_cfg: "<ROOT>/metricnet/config/flownav.yaml"
+    model_ckpt: "<PATH TO CKPT>"
+
+  flownav_depth_metricnet:
+    model_cfg: "<ROOT>/metricnet/config/flownav_with_metricnet.yaml"
+    model_ckpt: "<PATH TO CKPT>"
+
+  nomad_no_depth:
+    model_cfg: "<ROOT>/metricnet/config/nomad.yaml"
+    model_ckpt: "<PATH TO CKPT>"
+
+  nomad_depth_metricnav:
+    model_cfg: "<ROOT>/metricnet/config/nomad_depth_with_metricnet.yaml"
+    model_ckpt: "<PATH TO CKPT>"
+
+  nomad_no_depth_navidiffusor:
+    model_cfg: "<ROOT>/metricnet/config/navidiffusor.yaml"
+    model_ckpt: "<PATH TO CKPT>"
+
