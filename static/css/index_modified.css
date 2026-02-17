@@ -114,6 +114,37 @@ pre {
   margin: 0.1rem 0;
 }
 
+.publication-announcements {
+  margin: 0.85rem auto 0.55rem;
+  max-width: 54rem;
+  padding: 0.8rem 1rem 0.8rem 1.15rem;
+  border: 1px solid #dcc9b2;
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, #fff8ef 0%, #f8f0e5 100%);
+  color: var(--text-body);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.11), 0 8px 22px rgba(28, 25, 23, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.publication-announcements p {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.publication-announcements p + p {
+  margin-top: 0.35rem;
+}
+
+.publication-announcements .announcement-icon {
+  color: #9a3412;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
 /* Author links (override earlier important rules) */
 .publication-authors a {
   color: var(--link) !important;
