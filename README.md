@@ -6,9 +6,6 @@
 [![Latest Release](https://img.shields.io/github/v/tag/utn-air/metricnet?label=Latest%20Release&cacheSeconds=60)
 ](https://github.com/utn-air/metricnet/releases)
 
-> [!NOTE]  
-> This source code was based on [NoMaD: Goal Masking Diffusion Policies for Navigation and Exploration](https://general-navigation-models.github.io/nomad/index.html).
-
 ## 💡 News
 
 - **January 2026**: Accepted at ICRA 2026! 🎉
@@ -97,7 +94,13 @@ python benchmark.py -c <YOUR_CONFIG>.yaml
 We deployed to a TurtleBot 4 using ROS2 Humble. 
 
 > [!WARNING]  
-> **Deployment code is under the development and a final version will be uploaded soon.**
+> **Deployment code is under development and a final version will be uploaded soon.**
+
+## Acknowledgements
+
+- [NoMaD: Goal Masking Diffusion Policies for Navigation and Exploration](https://general-navigation-models.github.io/nomad/index.html)
+- [NaviDiffusor: Cost-Guided Diffusion Model for Visual Navigation](https://github.com/SYSU-RoboticsLab/NaviD)
+- [Imperative Path Planner (iPlanner)](https://github.com/leggedrobotics/iPlanner)
 
 ## 📝 Citation
 
