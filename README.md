@@ -11,6 +11,7 @@
 
 ## 💡 News
 
+- **January 2026**: Accepted at ICRA 2026! 🎉
 - **October 2025**: Training and evaluation code published. Weights and dataset available in releases.
 
 ## 🪛 Installation
@@ -32,9 +33,13 @@ pip install git+ssh://git@github.com/debOliveira/depth-anything-V2.git@7885bbc06
 
 ## 🔗 Download data and weights
 
+
+> [!WARNING]  
+> **We are looking into hosting solutions for our data. In the meantime, we make public the data generation scripts.**
+
 1) Download and process the datasets according to [NoMaD's instructions](https://github.com/robodhruv/visualnav-transformer?tab=readme-ov-file#data-wrangling).
-2) Generate the benchmark data using the provided script `python generate_benchmark_data.py` or download the preprocessed data from [here](/) and unzip it. For more information on the generation, please use the `--help` flag.
-3) Generate the training data using the provided script `python generate_training_data.py ` or download the preprocessed data from [here](/) and unzip it. For more information on the generation, please use the `--help` flag.
+2) Generate the benchmark data using the provided script `python generate_benchmark_data.py`. For more information on the generation, please use the `--help` flag.
+3) Generate the training data using the provided script `python generate_training_data.py `. For more information on the generation, please use the `--help` flag.
 4) Download [DepthAnything-V2 ViT-s weights](https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.pth?download=true) for training MetricNet, and [DepthAnything-V2 Metric ViT-B weights](https://huggingface.co/depth-anything/Depth-Anything-V2-Metric-Hypersim-Base/resolve/main/depth_anything_v2_metric_hypersim_vitb.pth?download=true) for MetricNav.
 5) If you want to use the pretrained model, download the weights from [our latest release](https://github.com/utn-air/metricnet/releases).
 
